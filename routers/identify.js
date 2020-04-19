@@ -11,6 +11,7 @@ var API_KEY = "1Pj4IF9ur4l8xqOuXgo3w4dY";
 var SECRET_KEY = "y94P13Ez68F0lAmFSuhsMjVFaKqkbr6I";
 let wxUrl = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wx2b370ab3723df6a4&secret=43743345568d9c077167a093b238d1de";
 var AipFaceClient = require("baidu-aip-sdk").face;
+var client = new AipImageClassifyClient(APP_ID, API_KEY, SECRET_KEY);
 // 设置APPID/AK/SK(人脸识别)
 var APP_ID = "11469869";
 var API_KEY = "R1tcAli4sMELMeVIT7pXBriS";
@@ -31,6 +32,7 @@ request(wxUrl, function (error, response, body) {
     if (!error && response.statusCode == 200) {
         //输出返回的内容
         access = JSON.parse(body).access_token;
+        console.log(access)
     }
 });
 var formData = {
@@ -61,6 +63,7 @@ function imgCheck(formData) {
         request(option, function (error, response, body) {
             if (!error && response.statusCode == 200) {
                 //输出返回的内容
+                console.log(body.errcode)
                 resolve(body.errcode);
                 // if (JSON.parse(body).errcode === 0) {
 
@@ -75,7 +78,7 @@ function imgCheck(formData) {
 }
 // var acctoken=https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=APPID&secret=APPSECRET
 // 新建一个对象，建议只保存一个对象调用服务接口
-var client = new AipImageClassifyClient(APP_ID, API_KEY, SECRET_KEY);
+
 /*
   菜品识别
 */
@@ -263,6 +266,7 @@ router.post('/advancedGeneral', (req, res) => {
                 if (resul === 0) {
                     // 调用菜品识别
                     client.advancedGeneral(image).then(function (result) {
+                        console.log(result)
                         res.send(JSON.stringify(result.result))
                     }).catch(function (err) {
                         // 如果发生网络错误

@@ -1,0 +1,28 @@
+{
+  "name": "ai-general-things-api",
+  "version": "1.0.0",
+  "description": "AI识物微信小程序服务端",
+  "main": "app.js",
+  "dependencies": {
+    "baidu-aip-sdk": "^2.4.6",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "multiparty": "^4.2.1",
+    "mysql": "^2.18.1",
+    "request": "^2.88.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lrqnew/AI-General-things-API.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lrqnew/AI-General-things-API/issues"
+  },
+  "homepage": "https://github.com/lrqnew/AI-General-things-API#readme"
+}
